@@ -105,14 +105,14 @@ a {
 	width: 100%;
 }
 
-ul.social
+ol.social
 {
 width: 242px;
 margin: 80px auto 0;
 height: 62px;
 }
 
-ul.social li{
+ol.social li{
 float: left;
 background: url(../images/social.png) left top no-repeat;
 position: relative;
@@ -121,32 +121,32 @@ margin-right: 28px;
 	margin-left:30px
 }
 
-ul.social li a{
+ol.social li a{
 display: block;
 width: 62px;
 height: 62px;
 }
 
 
-ul.social li.facebook{
+ol.social li.facebook{
 height: 62px;
 background-position: 0 0;
 width: 62px;
 }
 
-ul.social li.facebook:hover{
+ol.social li.facebook:hover{
 background-position: 0 -62px;
 }
 
 
 
-ul.social li.twitter{
+ol.social li.twitter{
 height: 62px;
 background-position: -90px 0;
 width: 62px;
 }
 
-ul.social li.twitter:hover{
+ol.social li.twitter:hover{
 background-position: -90px -62px;
 }
 
