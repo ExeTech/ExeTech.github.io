@@ -45,6 +45,8 @@ body {
   padding: 0;
   color: #fff;
   text-align: center;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
   background: url(../images/background.png) right bottom no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -67,15 +69,32 @@ body {
   position: absolute;
   width: 100%;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 #header {
-  width: 450px;
-  padding: 0px 0 0px 0;
-  margin: auto;
-  background-image: url(../images/logo.png);
-  height: 450px
+    margin-bottom: 25px;
+}
+
+#logo {
+    width: 450px;
+    height: 200px
+}
+
+#nav li {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+#nav li.active,
+#nav li:hover {
+    background-color: #d6bc13;
+    border-radius: 2px;
+    color: #000;
+}
+
+#nav li a {
+    text-decoration: none;
 }
 
 h1 {
@@ -130,13 +149,42 @@ a {
   color: #FFF500;
 }
 
+.front-image {
+    height: 250px;
+    width: auto;
+    margin: 15px;
+}
+
 #footer {
   width: 100%;
 }
 
+#help-tiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.help-tile {
+    background-color: #444;
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+}
+
+.help-tile a {
+    text-decoration: none;
+}
+
+.help-tile img {
+    height: 130px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
 ol.social {
   width: 242px;
-  margin: 80px auto 0;
+  margin: 40px auto 0;
   height: 62px;
 }
 
@@ -184,43 +232,4 @@ ul.social li.youtube {
 
 ul.social li.youtube:hover {
   background-position: -180px -62px;
-}
-
-@media screen and (max-width: 568px) {
-  #header {
-    width: 100%;
-    padding: 30px 0 30px 0;
-    margin: auto;
-  }
-  h1 {
-    font-size: 53px;
-  }
-  h2 {
-    font-size: 15px;
-    letter-spacing: 2px;
-  }
-  h2 strong.sep-one {
-    width: 30px;
-    margin-left: -40px;
-    margin-top: 7px;
-  }
-  h2 strong.sep-two {
-    width: 30px;
-    margin-left: 10px;
-    margin-top: 7px;
-  }
-  #middle {
-    margin: 50px 0 20px 0;
-    width: 90%;
-    padding: 5%;
-  }
-  #middle p {
-    font-size: 18px;
-    color: #000000;
-    line-height: 24px;
-    padding: 0;
-  }
-  #middle p span {
-    color: #FFFD00;
-  }
 }
