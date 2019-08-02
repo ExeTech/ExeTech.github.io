@@ -233,3 +233,14 @@ ul.social li.youtube {
 ul.social li.youtube:hover {
   background-position: -180px -62px;
 }
+
+@media screen and (max-width: 568px){
+    #logo {
+        width: 100%;
+        height: auto
+    }
+    .front-image {
+        width: 100%;
+        height: auto
+    }
+}
