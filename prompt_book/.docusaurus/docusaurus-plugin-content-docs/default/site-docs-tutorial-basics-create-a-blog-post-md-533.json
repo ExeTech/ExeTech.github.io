@@ -1,0 +1,27 @@
+{
+  "id": "tutorial-basics/create-a-blog-post",
+  "title": "Intro to Sound",
+  "description": "",
+  "source": "@site/docs/tutorial-basics/create-a-blog-post.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/create-a-blog-post",
+  "permalink": "/prompt_book/build/docs/tutorial-basics/create-a-blog-post",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/create-a-blog-post.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Intro to Lighting",
+    "permalink": "/prompt_book/build/docs/tutorial-basics/intro-to-lighting"
+  },
+  "next": {
+    "title": "Markdown Features",
+    "permalink": "/prompt_book/build/docs/tutorial-basics/markdown-features"
+  }
+}

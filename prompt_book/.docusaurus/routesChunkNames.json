@@ -1,0 +1,42 @@
+{
+  "/prompt_book/build/docs-a90": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "aba21aa0"
+    }
+  },
+  "/prompt_book/build/docs-763": {
+    "__comp": "a7bd4aaa",
+    "__props": "b0e2f9f2"
+  },
+  "/prompt_book/build/docs-a4d": {
+    "__comp": "a94703ab"
+  },
+  "/prompt_book/build/docs/category/training-a7c": {
+    "__comp": "14eb3368",
+    "__props": "47c7aa47"
+  },
+  "/prompt_book/build/docs/intro-ee3": {
+    "__comp": "17896441",
+    "content": "0e384e19"
+  },
+  "/prompt_book/build/docs/training/intro-to-lighting-6ee": {
+    "__comp": "17896441",
+    "content": "6da151af"
+  },
+  "/prompt_book/build/docs/training/intro-to-production-c99": {
+    "__comp": "17896441",
+    "content": "5a2e6f4a"
+  },
+  "/prompt_book/build/docs/training/intro-to-sound-7bb": {
+    "__comp": "17896441",
+    "content": "8e36b4fb"
+  },
+  "/prompt_book/build/-044": {
+    "__comp": "c4f5d8e4",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  }
+}

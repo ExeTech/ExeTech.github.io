@@ -1,0 +1,27 @@
+{
+  "id": "tutorial-basics/create-a-page",
+  "title": "Intro to Production",
+  "description": "",
+  "source": "@site/docs/tutorial-basics/create-a-page.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/create-a-page",
+  "permalink": "/prompt_book/build/docs/tutorial-basics/create-a-page",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/create-a-page.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Training",
+    "permalink": "/prompt_book/build/docs/category/training"
+  },
+  "next": {
+    "title": "Create a Document",
+    "permalink": "/prompt_book/build/docs/tutorial-basics/create-a-document"
+  }
+}
