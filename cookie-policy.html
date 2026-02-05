@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store | ExeTech | The University of Exeter's Theatrical Production Society</title>
+  <title>Cookie Notice | ExeTech | The University of Exeter's Theatrical Production Society</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <script
-    type="text/javascript"
-    src="https://cdn.rentle.io/embed/bundle.js"
-    defer
-  ></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 
 <body class="bg-black text-white" style="font-family: 'Titillium Web', sans-serif;">
 
-<!-- Header -->
 <!-- Header placeholder -->
 <div id="header-placeholder"></div>
 
@@ -80,31 +75,41 @@
 </script>
 
 
-<main class="relative">
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-12 space-y-6">
+    <h2 class="text-3xl font-bold text-white">Cookie Notice</h2>
 
-  <!-- Loading Message -->
-  <div id="store-loading" class="text-white text-center text-xl py-20">
-    Store loading...
-  </div>
+    <p class="text-lg text-gray-300">
+      ExeTech only uses <strong>essential cookies</strong> required for the website to function properly. 
+      These cookies ensure basic site functionality.
+    </p>
 
-  <!-- Store Component -->
-  <twice-store
-    id="twice-store"
-    shop="exetech"
-    class="hidden"
-  ></twice-store>
+    <p class="text-lg text-gray-300">
+      We do <strong>not</strong> use analytics, tracking, or marketing cookies. 
+    </p>
+    
+    <p class="text-lg text-gray-300">
+        The embedded Twice/Rentle store only uses essential cookies for proper functionality and does not set marketing or tracking cookies. 
+        Third-party websites that we link to may use their own cookies.
+    </p>
 
+    <p class="text-lg text-gray-300">
+      For more information, please contact us at 
+      <a href="mailto:exetech@groups.exeterguild.com" class="underline hover:text-gray-400 transition">exetech@groups.exeterguild.com</a>.
+    </p>
+
+    <a href="index.html" class="inline-block mt-6 bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+      Back to Home
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder" class="fixed bottom-0 left-0 w-full"></div>
   <script>
-    const storeEl = document.getElementById('twice-store');
-    const loadingEl = document.getElementById('store-loading');
-
-    // After seconds reveal regardless
-    setTimeout(() => {
-      loadingEl.style.display = 'none';
-      storeEl.classList.remove('hidden');
-    }, 500); 
+    fetch('/footer.html')
+      .then(r => r.text())
+      .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
   </script>
 
-</main>
 </body>
 </html>

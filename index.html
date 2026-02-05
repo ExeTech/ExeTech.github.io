@@ -3,54 +3,267 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ExeTech - The University of Exeter's Theatrical Production Society</title>
+  <title>Home | ExeTech | The University of Exeter's Theatrical Production Society</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background-color: #111; /* slightly lighter black for contrast */
-      text-align: center;
-    }
-
-    header img {
-      height: 60px; /* adjust as needed */
-      margin-right: 15px;
-    }
-
-    header h1 {
-      font-size: 1.8em;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-
-    main {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    main img {
-      max-width: 90%;
-      height: auto;
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body>
-  <header>
-    <img src="images/x_main_black.png" alt="ExeTech Logo">
-    <h1>ExeTech — The University of Exeter's Theatrical Production Society</h1>
-  </header>
 
-  <main>
-    <img src="images/x_main_black.png" alt="ExeTech Banner">
+<body class="bg-black text-white" style="font-family: 'Titillium Web', sans-serif;">
+
+<!-- Header placeholder -->
+<div id="header-placeholder"></div>
+
+<!-- Header -->
+<script>
+  async function loadHeader() {
+    const res = await fetch('/header.html');
+    const html = await res.text();
+    const placeholder = document.getElementById('header-placeholder');
+    placeholder.innerHTML = html;
+
+    // Highlight current link
+    const links = placeholder.querySelectorAll('nav a');
+    const currentPath = window.location.pathname;
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('bg-white', 'text-black');
+      }
+    });
+
+    // --- Mobile menu toggle ---
+    const btn = placeholder.querySelector('#mobile-menu-button');
+    const menu = placeholder.querySelector('#mobile-menu');
+    const icon = btn?.querySelector('i');
+
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+
+        // Animate via max-height
+        if (menu.classList.contains('hidden')) {
+          menu.style.maxHeight = '0px';
+        } else {
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+        }
+
+        // Swap icons
+        if (icon) {
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+        }
+      });
+
+      // Reset if screen gets wider
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+          menu.classList.add('hidden');
+          menu.style.maxHeight = '0px';
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        }
+      });
+    }
+  }
+
+  loadHeader();
+</script>
+
+
+
+  <!-- Hero Section -->
+  <main class="relative flex justify-center mt-10">
+    <img src="images/x_main_black.png" alt="ExeTech Banner" class="max-w-[90%] h-auto max-h-64 md:max-h-96 object-contain">
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">ExeTech</h1>
+      <p class="text-lg md:text-2xl text-white drop-shadow-md">
+        The University of Exeter's Theatrical Production Society
+      </p>
+    </div>
   </main>
+
+  <!-- Social Links -->
+  <section class="mt-6 flex justify-center space-x-6">
+    <a href="https://instagram.com/exetech.exeter" target="_blank" class="hover:text-gray-400 hover:scale-110 transition text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/exetech.exeter" target="_blank" class="hover:text-gray-400 hover:scale-110 transition text-2xl" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="mailto:exetech@groups.exeterguild.com" class="hover:text-gray-400 hover:scale-110 transition text-2xl" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </section>
+
+  <!-- About -->
+  <section class="mt-16 relative px-6 md:px-20 py-12 rounded-lg">
+    <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 opacity-80 rounded-lg"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-white space-y-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold">About Us</h2>
+      <div class="text-lg space-y-6">
+        <p>ExeTech is the University of Exeter's only theatrical production society - 
+          offering training and socials for those interested in all things backstage. 
+          We welcome students with any level of experience, including those who never having done it before.</p>
+        </p>
+        <p>Training will start with the basics and refreshment courses, and throughout the year will gradually get
+          more advanced to improve your skill set, whether you just want to try something out or be a lead designer and operator for a show!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITTEE SECTION (unchanged) -->
+  <section class="mt-16 px-6 md:px-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Meet Our 25/26 Committee</h2>
+    <div class="flex overflow-x-auto space-x-6 pb-4 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 snap-x snap-mandatory">
+      <!-- Member cards remain unchanged -->
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/jay_roe.png" alt="Jay Roe" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Jay Roe</h3>
+        <p class="text-gray-300">He/Him</p>
+        <p class="text-gray-300">President</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/adam_purdy.png" alt="Adam Purdy" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Adam Purdy</h3>
+        <p class="text-gray-300">He/Him</p>
+        <p class="text-gray-300">Training Leader</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/lucy_anderson.png" alt="Lucy Anderson" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Lucy Anderson</h3>
+        <p class="text-gray-300">She/Her</p>
+        <p class="text-gray-300">Social Secretary</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/joel_sawyer.png" alt="Joel Sawyer" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Joel Sawyer</h3>
+        <p class="text-gray-300">He/Him</p>
+        <p class="text-gray-300">Treasurer</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/reuben_thomas.png" alt="Reuben Thomas" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Reuben Thomas</h3>
+        <p class="text-gray-300">He/Him</p>
+        <p class="text-gray-300">Equipment Manager</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/laura_brian.png" alt="Laura Brian" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Laura Brian</h3>
+        <p class="text-gray-300">She/Her</p>
+        <p class="text-gray-300">General & Welfare Secretary</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/james_sadler.png" alt="Laura Brian" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">James Sadler</h3>
+        <p class="text-gray-300">He/Him</p>
+        <p class="text-gray-300">Alumni Representative</p>
+      </div>
+      <div class="flex-none snap-center bg-[#1e1e1e] rounded-lg p-6 flex flex-col items-center text-center shadow-lg hover:shadow-2xl hover:scale-105 transition min-w-[250px]">
+        <img src="images/committee-profiles/micey.png" alt="Laura Brian" class="w-32 h-32 rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold text-white">Mic-ey</h3>
+        <p class="text-gray-300">They/Them</p>
+        <p class="text-gray-300">Welfare Mascot</p>
+      </div>
+    </div>
+    <p class="text-gray-400 mt-4 text-sm">Scroll horizontally to see all members →</p>
+  </section>
+
+  <!-- TRAINING SECTION -->
+  <section class="mt-10 px-6 md:px-20 py-12 rounded-lg relative"
+           style="background: linear-gradient(to right, rgba(6,182,212,0.8), rgba(139,92,246,0.8));">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+      <div class="md:w-1/2 text-white space-y-4">
+        <h2 class="text-2xl md:text-5xl font-bold">Training</h2>
+        <div class="text-lg space-y-6">
+          <p>Our Training Sessions cover every aspect of theatrical production : lighting, sound, makeup, costume, and stage.</p>
+          <p>The sessions provide a relaxed environment to learn new skills through hands on experience and talks from industry professionals.<p>
+          <a href="prompt_book/build/docs/category/training" target="_blank"
+            class="inline-block mt-4 bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+            More Info on the Wiki →
+          </a>          
+        </div>
+      </div>
+      <div class="md:w-1/2 relative w-full rounded-lg overflow-hidden">
+        <img id="training-carousel" src="images/training/training_1.jpeg" class="w-full h-64 md:h-96 object-cover transition duration-500">
+        <button id="training-prev" class="absolute top-1/2 left-2 bg-white/20 hover:bg-white/40 text-white rounded-full p-2">&#10094;</button>
+        <button id="training-next" class="absolute top-1/2 right-2 bg-white/20 hover:bg-white/40 text-white rounded-full p-2">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const trainingImages = [
+      'images/training/training_1.jpeg',
+      'images/training/training_2.jpeg',
+      'images/training/training_3.jpeg',
+      'images/training/training_4.jpeg'
+    ];
+    let ti = 0;
+    const tImg = document.getElementById('training-carousel');
+    document.getElementById('training-prev').onclick = () => { ti = (ti - 1 + trainingImages.length) % trainingImages.length; tImg.src = trainingImages[ti]; };
+    document.getElementById('training-next').onclick = () => { ti = (ti + 1) % trainingImages.length; tImg.src = trainingImages[ti]; };
+    setInterval(() => { ti = (ti + 1) % trainingImages.length; tImg.src = trainingImages[ti]; }, 5000);
+  </script>
+
+  <!-- SOCIALS SECTION with Carousel and FIXR Button -->
+  <section class="mt-16 px-6 md:px-20 relative py-12 rounded-lg">
+    <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 opacity-80 rounded-lg"></div>
+    <div class="relative z-10 max-w-6xl mx-auto text-white space-y-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold">Socials</h2>
+      <div class="text-lg space-y-6">
+        <p>ExeTech runs an exciting programme of socials, ranging from bowling, to scavenger hunts, and many pub trips!</p>
+        <p>There is no pressure to drink at any of our meet-ups, and one of our committee will always remain sober.</p>
+        <a href="https://fixr.co/organiser/516742326" target="_blank"
+          class="inline-block mt-4 bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+          View Events on FIXR →
+        </a>
+      </div>
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+        <div class="md:w-1/2 relative w-full rounded-lg overflow-hidden">
+          <img src="images/socials/social_1.jpeg" class="w-full h-64 md:h-96 object-cover rounded-lg">
+        </div>
+      </div>
+      <p class="text-gray-300 text-sm mt-2">Scroll to see more photos →</p>
+    </div>
+  </section>
+
+  <!-- OPERATIONS SECTION -->
+  <section class="mt-10 px-6 md:px-20 py-12 rounded-lg relative"
+           style="background: linear-gradient(to right, rgba(1,255,56,0.8), rgba(255,230,0,0.8));">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+      <div class="md:w-1/2 relative w-full rounded-lg overflow-hidden">
+        <img src="images/operations/store_1.jpeg" class="w-full h-64 md:h-96 object-cover rounded-lg">
+      </div>
+      <div class="md:w-1/2 text-white space-y-4 text-left">
+        <h2 class="text-2xl md:text-5xl font-bold">Operations</h2>
+        <div class="text-lg space-y-6">
+          <p>ExeTech maintains a stock of theatrical electrical equipment which is available for hire by societies.<p>
+          <p>We also look after the permanent lighting and sound equipment in The Theatre (DH1) and provide packages of gear for
+            other spaces.
+          </p>
+          <p>The Theatre @ Exeter workshop space which is used for set design is also managed by ExeTech.</p>
+          <div class="space-x-2 mt-4">
+            <a href="/store.html" target="_blank"
+              class="inline-block bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+              Visit Store →
+            </a>
+            <a href="mailto:exetech@groups.exeterguild.com?subject=Workshop%20Booking"
+              class="inline-block bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+              Email to Book Workshop →
+            </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('/footer.html')
+      .then(r => r.text())
+      .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+  </script>
+
 </body>
 </html>
